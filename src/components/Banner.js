@@ -20,7 +20,6 @@ class Banner extends React.Component{
                 </Navbar.Brand>
             </Container>
         </Navbar>)
-
     }
 }
 

@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 
-export default class PersonList extends React.Component {
+export default class Matchs extends React.Component {
   state = {
     matchs: []
   }
@@ -15,7 +15,6 @@ export default class PersonList extends React.Component {
     axios.get(`https://api.henrikdev.xyz/valorant/v3/matches/eu/xei%C3%A4/euw`)
       .then(res => {
         const matchs = res.data.data;
-        console.log(matchs);
         this.setState({ matchs });
       })
   }
@@ -41,7 +40,8 @@ export default class PersonList extends React.Component {
                             {
                                 this.state.matchs.map((match, i) => (
                                     <Tab.Pane eventKey={ "#" + match.metadata.matchid}>
-                                    {match.metadata.map}
+                                    {match.metadata.mode}
+                                    {match.rounds.winning_team}
                                     </Tab.Pane>
                                 ))
                             }
