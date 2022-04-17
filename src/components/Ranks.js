@@ -36,6 +36,15 @@ export default class Ranks extends React.Component {
       { puuid: "e6076e4e-9dc2-5772-bd44-3c84c75b9a56" }
       ];
       
+
+      <>
+      {console.log(this.state.players)}
+        {this.state.players.map(player => ( 
+        <p>
+          {player.name + "#" + player.tag +  " - " +  player.currenttierpatched + " | " + player.ranking_in_tier + "RR"}
+        </p>
+        ))}
+      </>
       */
     axios.get(`https://api.henrikdev.xyz/valorant/v1/by-puuid/mmr/eu/603d9e1c-bcb2-50c8-a27b-5f33b5b7fbe3`)
       .then(res => {
@@ -96,13 +105,14 @@ export default class Ranks extends React.Component {
   }
 
   componentDidMount() {
-
+    this.state.players.sort(function(a,b){
+      return a.lastModified < b.lastModified ? 1 : -1;
+  });
   }
 
   render() {
     return (
       <>
-      {console.log(this.state.puuids)}
       {console.log(this.state.players)}
         {this.state.players.map(player => ( 
         <p>
