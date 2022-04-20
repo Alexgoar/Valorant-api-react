@@ -1,6 +1,7 @@
 import React from 'react';
-
 import axios from 'axios';
+import Card from 'react-bootstrap/Card'
+import Table from 'react-bootstrap/Table'
 
 export default class Ranks extends React.Component {
   state = {
@@ -102,23 +103,50 @@ export default class Ranks extends React.Component {
           players: [...prevState.players, players.data]
           }))
       })
+
   }
 
   componentDidMount() {
-    this.state.players.sort(function(a,b){
-      return a.lastModified < b.lastModified ? 1 : -1;
-  });
-  }
 
+  }
+  
   render() {
+    const myData = [].concat(this.state.players)
+    const sorted = [...myData].sort((a, b) => b.elo - a.elo);
+    console.log(sorted);
+    this.setState({players: sorted});
+    var cpt = 1;
     return (
       <>
-      {console.log(this.state.players)}
-        {this.state.players.map(player => ( 
-        <p>
-          {player.name + "#" + player.tag +  " - " +  player.currenttierpatched + " | " + player.ranking_in_tier + "RR"}
-        </p>
-        ))}
+      <Card>
+        <Card.Header>Rankings VALORANT</Card.Header>
+        <Card.Body>
+          <Card.Text>
+          {console.log(this.state.players)}
+            <Table striped bordered hover variant="dark">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Pseudo</th>
+                  <th>Rank</th>
+                  <th>Elo</th>
+                </tr>
+              </thead>
+              <tbody>
+              {this.state.players.map(player => ( 
+              <tr>
+                <td>{cpt}</td>
+                <td>{player.name + " #" + player.tag}</td>
+                <td>{player.currenttierpatched + " | " + player.ranking_in_tier + " RR"}</td>
+                <td>{player.elo}</td>
+                {cpt++}
+              </tr>
+              ))}
+              </tbody>
+            </Table>
+          </Card.Text>
+        </Card.Body>
+      </Card>
       </>
     )
   }

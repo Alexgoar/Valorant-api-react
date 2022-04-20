@@ -3,6 +3,7 @@ import Banner from './components/Banner'
 import Matchs from './components/Matchs'
 import Player from './components/Player'
 import Ranks from './components/Ranks'
+import Pigeon from './components/Pigeon'
 
 function App() {
     return (
@@ -11,6 +12,7 @@ function App() {
       <Player/>
       <Matchs />
       <Ranks />
+      <Pigeon/>
     </>
     )
 }
