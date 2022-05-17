@@ -1,18 +1,22 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Routes, Route } from 'react-router-dom';
 import Banner from './components/Banner'
 import Matchs from './components/Matchs'
 import Player from './components/Player'
-import Ranks from './components/Ranks'
 import Pigeon from './components/Pigeon'
+import Layout from './components/Layout';
 
 function App() {
     return (
     <>
-      <Banner />
-      <Player/>
-      <Matchs />
-      <Ranks />
-      <Pigeon/>
+    <Banner />
+    <Routes>
+     <Route path="/" element={<Layout />}>
+        <Route index element={<Player/>} />
+        <Route path="pigeon" element={<Pigeon/> } />
+        <Route path="historique" element={<Matchs/> } />
+      </Route> 
+    </Routes>
     </>
     )
 }
