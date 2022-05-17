@@ -113,7 +113,6 @@ export default class Ranks extends React.Component {
   render() {
     const myData = [].concat(this.state.players)
     const sorted = [...myData].sort((a, b) => b.elo - a.elo);
-    console.log(sorted);
     this.setState({players: sorted});
     var cpt = 1;
     return (
@@ -122,7 +121,6 @@ export default class Ranks extends React.Component {
         <Card.Header>Rankings VALORANT</Card.Header>
         <Card.Body>
           <Card.Text>
-          {console.log(this.state.players)}
             <Table striped bordered hover variant="dark">
               <thead>
                 <tr>
