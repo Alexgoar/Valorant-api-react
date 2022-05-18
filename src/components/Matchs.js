@@ -9,30 +9,52 @@ import Player from './Player';
 
 export default class Matchs extends React.Component {
   state = {
-    matchs: []
+    matchs: [],
+    teams:[]
   }
 
   componentDidMount() {
     axios.get(`https://api.henrikdev.xyz/valorant/v3/matches/eu/xei%C3%A4/euw`)
       .then(res => {
         const matchs = res.data.data;
-        this.setState({ matchs });
+        this.setState({matchs});
+        console.log(matchs);
       })
+  }
+
+  getTeam(){
+    var team  = '';
+    this.state.matchs.map((match,i) =>(
+      match.players.all_players.map((player, j) =>(
+
+        this.state.teams.push(player.name)
+      ))
+    ))
+    console.log(this.state.team)
   }
 
   render() {
     return (
       <>
       <Player/>
+      {this.getTeam()}
       <div class="matchs">
         <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
           <Row>
             <Col sm={4}>
               <ListGroup>
                 {
+
                   this.state.matchs.map((match, i) => (
                     <ListGroup.Item action href={"#" + match.metadata.matchid}>
-                      {match.metadata.map + " - " + match.teams.blue.rounds_won + " / " + match.teams.blue.rounds_lost}
+                      {(() => {
+                        switch (match.metadata.mode) {
+                          case "Competitive": return match.metadata.map + " - " + match.teams.blue.rounds_won + " / " + match.teams.blue.rounds_lost;
+                          case "Deathmatch": return match.metadata.map;
+                          default: return "#FFFFFF";
+                        }
+                      })()}
+                      {/*match.metadata.map + " - " + match.teams.blue.rounds_won + " / " + match.teams.blue.rounds_lost*/}
                     </ListGroup.Item>
                   ))
                 }
