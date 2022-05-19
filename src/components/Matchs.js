@@ -10,41 +10,41 @@ import Player from './Player';
 export default class Matchs extends React.Component {
   state = {
     matchs: [],
-    teams:[]
+    teams:[],
+    matchsId:[]
   }
 
   componentDidMount() {
-    axios.get(`https://api.henrikdev.xyz/valorant/v3/matches/eu/xei%C3%A4/euw`)
-      .then(res => {
-        const matchs = res.data.data;
-        this.setState({matchs});
-        console.log(matchs);
-      })
-  }
+    axios.get(`https://api.henrikdev.xyz/valorant/v3/matches/eu/miikyy/euw`)
+    .then(res => {
+      const matchs = res.data.data;
+      this.setState({matchs});
+      console.log(matchs);
+    })
 
-  getTeam(){
-    var team  = '';
-    this.state.matchs.map((match,i) =>(
-      match.players.all_players.map((player, j) =>(
-
-        this.state.teams.push(player.name)
-      ))
+    this.state.matchs.map((match, i) => (
+      this.setState(prevState => ({
+        matchsId: [...prevState.matchsId, match.metadata.matchid]
+        }))
     ))
-    console.log(this.state.team)
   }
 
   render() {
+    const tabPlayers = []
+    this.state.matchs.map((match, i) => (
+        tabPlayers[i] = match.players.all_players
+    ))
+    console.log(tabPlayers)
+
     return (
       <>
       <Player/>
-      {this.getTeam()}
       <div class="matchs">
         <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
           <Row>
             <Col sm={4}>
               <ListGroup>
                 {
-
                   this.state.matchs.map((match, i) => (
                     <ListGroup.Item action href={"#" + match.metadata.matchid}>
                       {(() => {
