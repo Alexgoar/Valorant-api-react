@@ -10,7 +10,6 @@ import Player from './Player';
 export default class Matchs extends React.Component {
   state = {
     matchs: [],
-    teams:[],
     matchsId:[]
   }
 
@@ -29,12 +28,23 @@ export default class Matchs extends React.Component {
     ))
   }
 
+  switchTeamPlayer(player){
+    switch(player){
+      case 'MiIkyy':
+        return player.team
+    }
+  };
+
   render() {
     const tabPlayers = []
+    const teams = []
     this.state.matchs.map((match, i) => (
         tabPlayers[i] = match.players.all_players
     ))
     console.log(tabPlayers)
+    tabPlayers.map((player, i) => (
+      teams[i] = switchTeamPlayer(player.name)
+    ))
 
     return (
       <>
