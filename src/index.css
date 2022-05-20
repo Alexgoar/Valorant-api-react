@@ -35,3 +35,11 @@ code {
 .matchs {
   margin-left: 17vw;
 }
+
+.redTeam {
+  float: right;
+}
+
+.blueTeam {
+  float: left;
+}
