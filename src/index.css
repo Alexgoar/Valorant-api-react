@@ -34,12 +34,40 @@ code {
 
 .matchs {
   margin-left: 17vw;
+  margin-right: 17vw;
 }
 
 .redTeam {
   float: right;
+  background-color: rgb(248, 207, 207);
+  margin-top: 2vw;
+  text-align: right;
 }
 
 .blueTeam {
   float: left;
+  background-color: rgb(186, 225, 250);
+  margin-top: 2vw;
+}
+
+.gamemode {
+  margin-bottom: 1vw;
+}
+
+.agentimg {
+  width:2.5vw;
+}
+
+.players ul {
+  list-style-type:none;
+  margin-left:-2vw;
+}
+
+.players li {
+  margin-bottom: 1vw;
+}
+
+.mapimg {
+  width:10vw;
+  height:4vw;
 }
