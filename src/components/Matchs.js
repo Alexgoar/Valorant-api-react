@@ -108,15 +108,16 @@ export default class Matchs extends React.Component {
           <Accordion defaultActiveKey={['0']} alwaysOpen>
             {
               this.state.matchs.map((match, i) => (
-                <Accordion.Item eventKey={match.metadata.matchid}>
+                <Accordion.Item eventKey={match.metadata.matchid} className="accordeon">
                   <Accordion.Header>
                     {//<img class="mapimg" src={icebox}/>
                     }
-                    <div className="mapimg">
+                    <div className="mapimg"></div>
+                      <div className="statsMatch">
                     {(() => {
                       switch (match.metadata.mode) {
-                        case "Competitive": return match.metadata.map + " - " + match.teams.blue.rounds_won + " / " + match.teams.blue.rounds_lost;
-                        case "Deathmatch": return match.metadata.map;
+                        case "Competitive": return <p> {match.metadata.map + " - " + match.teams.blue.rounds_won + " / " + match.teams.blue.rounds_lost} </p>
+                        case "Deathmatch": return <p> {match.metadata.map} </p>
                         default: return "#FFFFFF";
                       }
                     })()}

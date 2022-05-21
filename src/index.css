@@ -67,7 +67,31 @@ code {
   margin-bottom: 1vw;
 }
 
-.mapimg {
+.aa {
   width:10vw;
   height:4vw;
+}
+
+.mapimg {
+  background-image:
+  linear-gradient(to right, rgba(245, 246, 252, 0), rgb(255, 255, 255)),
+  url('components/img/icebox.jpeg');
+  width:15vw;
+  height:4vw;
+  background-size: cover;
+  
+  color: black;
+  padding: 20px;
+}
+
+.statsMatch {
+  margin-left: 10vw;
+  margin-top: 1vw;
+  font-weight: bold;
+  font-size: 1.5vw;
+}
+
+.accordeon {
+  border: none;
+  margin-bottom:1vw;
 }
