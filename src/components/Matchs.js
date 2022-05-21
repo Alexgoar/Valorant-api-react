@@ -129,36 +129,69 @@ export default class Matchs extends React.Component {
                     <div className="players">
                       <div className="blueTeam">
                         <h4>Blue Team</h4>
-                        <ul>
+                        <table>
+                          <tr>
+                            <th></th>
+                            <th>Pseudo</th>
+                            <th>ACS</th>
+                            <th>Kills</th>
+                            <th>Deaths</th>
+                            <th>Assists</th>
+                            <th>K/D</th>
+                            <th>HS%</th>
+                          </tr>
+                          
                         {
                           match.players.blue.map((teamBlue, j) => (
                             <>
-                            <li>
-                            <img class="agentimg" src={teamBlue.assets.agent.small}/>
-                            <span class="playerName">{teamBlue.name + "#" + teamBlue.tag}</span>
-                            </li>
+                            <tr>
+                            <td><img class="agentimg" src={teamBlue.assets.agent.small}/></td>
+                            <td>{teamBlue.name + "#" + teamBlue.tag}</td>
+                            <td>{Math.round(teamBlue.stats.score / match.rounds.length)}</td>
+                            <td>{teamBlue.stats.kills}</td>
+                            <td>{teamBlue.stats.deaths}</td>
+                            <td>{teamBlue.stats.assists}</td>
+                            <td>{Math.round((teamBlue.stats.kills / teamBlue.stats.deaths) * 10) / 10}</td>
+                            <td>{Math.round(teamBlue.stats.headshots / teamBlue.stats.bodyshots * 100) + "%"}</td>
+                            </tr>
                             </>
                           ))
 
                         }
-                        </ul>
+                        
+                        </table>
                       </div>
                       <div className="redTeam">
                         <h4>Red Team</h4>
-                        <ul>
+                        <table>
+                          <tr>
+                            <th></th>
+                            <th>Pseudo</th>
+                            <th>ACS</th>
+                            <th>Kills</th>
+                            <th>Deaths</th>
+                            <th>Assists</th>
+                            <th>K/D</th>
+                            <th>HS%</th>
+                          </tr>
                         {
                           match.players.red.map((teamRed, k) => (
                             <>
-                            <li>
-                            
-                            <span>{teamRed.name + "#" + teamRed.tag}</span>
-                            <img class="agentimg" src={teamRed.assets.agent.small}/>
-                            </li>
+                            <tr>
+                            <td><img class="agentimg" src={teamRed.assets.agent.small}/></td>
+                            <td>{teamRed.name + "#" + teamRed.tag}</td>
+                            <td>{Math.round(teamRed.stats.score / match.rounds.length)}</td>
+                            <td>{teamRed.stats.kills}</td>
+                            <td>{teamRed.stats.deaths}</td>
+                            <td>{teamRed.stats.assists}</td>
+                            <td>{Math.round((teamRed.stats.kills / teamRed.stats.deaths) * 10) / 10}</td>
+                            <td>{Math.round(teamRed.stats.headshots / teamRed.stats.bodyshots * 100) + "%"}</td>
+                            </tr>
                             </>
                           ))
 
                         }
-                        </ul>
+                        </table>
                       </div>
                     </div>
                   </Accordion.Body>

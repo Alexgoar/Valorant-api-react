@@ -38,15 +38,10 @@ code {
 }
 
 .redTeam {
-  float: right;
-  background-color: rgb(248, 207, 207);
   margin-top: 2vw;
-  text-align: right;
 }
 
 .blueTeam {
-  float: left;
-  background-color: rgb(186, 225, 250);
   margin-top: 2vw;
 }
 
@@ -95,3 +90,30 @@ code {
   border: none;
   margin-bottom:1vw;
 }
+
+.blueTeam tr {
+  background: rgb(98,186,165);
+  background: linear-gradient(90deg, rgba(98,186,165,1) 0%, rgba(255,255,255,1) 41%);
+  margin-bottom: 1vw;
+  border-bottom: 1px solid;
+}
+
+.blueTeam th {
+  background-color: #62BAA5;
+}
+
+.players table {
+  width: 100%;
+}
+
+.redTeam th{
+  background-color: #F1635D;
+}
+
+.redTeam tr {
+  background: rgb(241,99,93);
+  background: linear-gradient(90deg, rgba(241,99,93,1) 0%, rgba(255,255,255,1) 41%);
+  margin-bottom: 1vw;
+  border-bottom: 1px solid;
+}
+
