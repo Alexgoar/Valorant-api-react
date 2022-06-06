@@ -67,14 +67,46 @@ code {
   height:4vw;
 }
 
-.mapimg {
+.mapimgHaven {
+  background-image:
+  linear-gradient(to right, rgba(245, 246, 252, 0), rgb(255, 255, 255)),
+  url('components/img/haven.jpg');
+  width:15vw;
+  height:4vw;
+  background-size: cover;
+  color: black;
+  padding: 20px;
+}
+
+.mapimgBind {
+  background-image:
+  linear-gradient(to right, rgba(245, 246, 252, 0), rgb(255, 255, 255)),
+  url('components/img/bind.jpg');
+  width:15vw;
+  height:4vw;
+  background-size: cover;
+  color: black;
+  padding: 20px;
+}
+
+.mapimgFracture {
+  background-image:
+  linear-gradient(to right, rgba(245, 246, 252, 0), rgb(255, 255, 255)),
+  url('components/img/fracture.jpg');
+  width:15vw;
+  height:4vw;
+  background-size: cover;
+  color: black;
+  padding: 20px;
+}
+
+.mapimgIcebox {
   background-image:
   linear-gradient(to right, rgba(245, 246, 252, 0), rgb(255, 255, 255)),
   url('components/img/icebox.jpeg');
   width:15vw;
   height:4vw;
   background-size: cover;
-  
   color: black;
   padding: 20px;
 }
@@ -93,7 +125,7 @@ code {
 
 .blueTeam tr {
   background: rgb(98,186,165);
-  background: linear-gradient(90deg, rgba(98,186,165,1) 0%, rgba(255,255,255,1) 41%);
+  background: linear-gradient(90deg, rgba(98,186,165,1) 0%, rgba(255,255,255,1) 20%);
   margin-bottom: 1vw;
   border-bottom: 1px solid;
 }
@@ -112,8 +144,14 @@ code {
 
 .redTeam tr {
   background: rgb(241,99,93);
-  background: linear-gradient(90deg, rgba(241,99,93,1) 0%, rgba(255,255,255,1) 41%);
+  background: linear-gradient(90deg, rgba(241,99,93,1) 0%, rgba(255,255,255,1) 20%);
   margin-bottom: 1vw;
   border-bottom: 1px solid;
 }
 
+.searchBar {
+  margin-left: 25vw;
+  width: 50%;
+  border: 2px solid rgb(175, 0, 0);
+  padding: 10px;
+}

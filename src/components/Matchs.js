@@ -8,7 +8,10 @@ import Col from 'react-bootstrap/Col'
 import { Accordion } from 'react-bootstrap';
 import Player from './Player';
 import Match from './Match';
-import icebox from './img/icebox.jpeg'
+import icebox from './img/icebox.jpeg';
+import haven from './img/haven.jpg';
+import bind from './img/bind.jpg';
+import fracture from './img/fracture.jpg';
 
 
 
@@ -20,7 +23,7 @@ export default class Matchs extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`https://api.henrikdev.xyz/valorant/v3/matches/eu/miikyy/euw`)
+    axios.get(`https://api.henrikdev.xyz/valorant/v3/matches/eu/XeIä/EUW`)
       .then(res => {
         const matchs = res.data.data;
         this.setState({ matchs });
@@ -110,9 +113,24 @@ export default class Matchs extends React.Component {
               this.state.matchs.map((match, i) => (
                 <Accordion.Item eventKey={match.metadata.matchid} className="accordeon">
                   <Accordion.Header>
-                    {//<img class="mapimg" src={icebox}/>
-                    }
-                    <div className="mapimg"></div>
+                      {/*(() => {
+                      switch (match.metadata.map) {
+                        case "Haven": return <img src={haven}/>
+                        case "Icebox": return <img src={icebox}/>
+                        case "Bind": return <img src={bind}/>
+                        case "Fracture": return <img src={fracture}/>
+                        default: return "#FFFFFF";
+                      }
+                    })()*/}
+                    {(() => {
+                      switch (match.metadata.map) {
+                        case "Haven": return <div className="mapimgHaven"></div>
+                        case "Icebox": return <div className="mapimgIcebox"></div>
+                        case "Bind": return <div className="mapimgBind"></div>
+                        case "Fracture": return <div className="mapimgFracture"></div>
+                        default: return "#FFFFFF";
+                      }
+                    })()}
                       <div className="statsMatch">
                     {(() => {
                       switch (match.metadata.mode) {
