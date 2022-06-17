@@ -38,5 +38,19 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/Alexgoar/Valorant-api-react.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alexgoar/Valorant-api-react/issues"
+  },
+  "homepage": "https://github.com/Alexgoar/Valorant-api-react#readme"
 }
