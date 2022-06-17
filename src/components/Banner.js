@@ -27,7 +27,7 @@ class Banner extends React.Component{
         return(
         <Navbar bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand href="#home">
+                <Navbar.Brand >
                     <img
                     alt=""
                     src={logo}

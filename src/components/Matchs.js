@@ -115,21 +115,15 @@ export default class Matchs extends React.Component {
               this.state.matchs.map((match, i) => (
                 <Accordion.Item eventKey={match.metadata.matchid} className="accordeon">
                   <Accordion.Header>
-                      {/*(() => {
-                      switch (match.metadata.map) {
-                        case "Haven": return <img src={haven}/>
-                        case "Icebox": return <img src={icebox}/>
-                        case "Bind": return <img src={bind}/>
-                        case "Fracture": return <img src={fracture}/>
-                        default: return "#FFFFFF";
-                      }
-                    })()*/}
                     {(() => {
                       switch (match.metadata.map) {
                         case "Haven": return <div className="mapimgHaven"></div>
                         case "Icebox": return <div className="mapimgIcebox"></div>
                         case "Bind": return <div className="mapimgBind"></div>
                         case "Fracture": return <div className="mapimgFracture"></div>
+                        case "Split": return <div className="mapimgSplit"></div>
+                        case "Ascent": return <div className="mapimgAscent"></div>
+                        case "Breeze": return <div className="mapimgBreeze"></div>
                         default: return "#FFFFFF";
                       }
                     })()}
