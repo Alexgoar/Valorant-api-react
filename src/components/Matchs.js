@@ -13,7 +13,9 @@ import haven from './img/haven.jpg';
 import bind from './img/bind.jpg';
 import fracture from './img/fracture.jpg';
 
-
+const queryParams = new URLSearchParams(window.location.search);
+const pseudo = queryParams.get('pseudo');
+const tag = queryParams.get('tag');
 
 export default class Matchs extends React.Component {
   state = {
@@ -23,7 +25,7 @@ export default class Matchs extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`https://api.henrikdev.xyz/valorant/v3/matches/eu/XeIä/EUW`)
+    axios.get(`https://api.henrikdev.xyz/valorant/v3/matches/eu/`+ pseudo + "/" + tag)
       .then(res => {
         const matchs = res.data.data;
         this.setState({ matchs });

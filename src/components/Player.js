@@ -2,6 +2,10 @@ import React from 'react';
 
 import axios from 'axios';
 
+const queryParams = new URLSearchParams(window.location.search);
+const pseudo = queryParams.get('pseudo');
+const tag = queryParams.get('tag');
+
 export default class Player extends React.Component {
   state = {
     pseudo: "",
@@ -11,7 +15,7 @@ export default class Player extends React.Component {
   };
 
   componentDidMount() {
-    axios.get(`https://api.henrikdev.xyz/valorant/v1/account/xei%C3%A4/euw`)
+    axios.get(`https://api.henrikdev.xyz/valorant/v1/account/` + pseudo + "/" + tag)
       .then(res => {
         const player = res.data;
         this.setState({ pseudo: player.data.name, hashtag: player.data.tag, card: player.data.card.small, account_level: player.data.account_level });
